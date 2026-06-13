@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=2">
+</head>
+<body>
+
+<div class="app-layout">
+
+    <!-- ===== SIDEBAR ===== -->
+    <div class="sidebar">
+        <div class="sidebar-top">
+            <div class="brand">
+                <div class="brand-icon">🤖</div>
+                <span class="brand-name">Local AI</span>
+            </div>
+            <button id="newChatBtn" class="new-chat-btn">＋ New Chat</button>
+        </div>
+
+        <div id="docList" class="doc-list"></div>
+
+        <div class="section-label">Recent Chats</div>
+        <div id="sessionList" class="session-list"></div>
+    </div>
+
+    <!-- ===== MAIN ===== -->
+    <div class="main-content">
+
+       <!-- Welcome -->
+<div id="welcomeScreen" class="welcome-screen">
+    <div class="welcome-content">
+
+        <div class="welcome-badge">✦ Your local AI assistant</div>
+
+        <h1 class="welcome-title">
+            What can I help<br>
+            you with?
+        </h1>
+
+        <p class="welcome-sub">
+            Ask anything or upload a document to chat with it.
+        </p>
+
+        <div class="suggestions">
+            <div class="chip" onclick="fillQuestion('Explain how RAG works')">
+                💡 Explain RAG
+            </div>
+
+            <div class="chip" onclick="fillQuestion('Write a Python function to parse JSON')">
+                🐍 Python snippet
+            </div>
+
+            <div class="chip" onclick="fillQuestion('Summarize my uploaded document')">
+                📄 Summarize doc
+            </div>
+
+            <div class="chip" onclick="fillQuestion('What is the difference between SQL and NoSQL?')">
+                🗄️ SQL vs NoSQL
+            </div>
+        </div>
+
+    </div>
+</div>
+
+        <!-- Chat -->
+        <div id="chat" class="chat-box"></div>
+
+        <!-- Loader -->
+        <div id="loader" class="loader hidden">
+            <div class="spinner"></div>
+            <span>Thinking...</span>
+        </div>
+
+        <!-- ===== INPUT BAR ===== -->
+        <div class="input-area">
+            <div class="input-pill">
+
+                <!-- Left: robot avatar -->
+                <div class="pill-avatar">🤖</div>
+
+                <!-- Middle: textarea + attach -->
+                <div class="pill-body">
+                    <textarea
+                        id="question"
+                        placeholder="Prompt..."
+                        rows="1"
+                        autocomplete="off"
+                    ></textarea>
+                    <label class="attach-icon" title="Upload PDF or TXT">
+                        📎
+                        <input type="file" id="fileInput" accept=".pdf,.txt" style="display:none">
+                    </label>
+                </div>
+
+                <!-- Right: send button -->
+                <button id="sendBtn" onclick="ask()" title="Send">
+                    <span class="send-icon">✦</span>
+                </button>
+
+            </div>
+            <div class="input-hint">Enter to send &nbsp;·&nbsp; Shift+Enter for new line</div>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="/static/js/script.js"></script>
+</body>
+</html>
