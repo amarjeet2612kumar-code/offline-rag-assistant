@@ -225,6 +225,7 @@ body {
     flex-direction: column;
     overflow: hidden;
     min-width: 0;
+    height: 100vh;
 }
 
 /* =============================================
@@ -311,11 +312,12 @@ body {
     flex: 1;
     min-height: 0;
     overflow-y: auto;
-    padding: 28px 8% 12px;
+    overflow-x: hidden;
+    padding: 28px 24px 12px;
     display: none;
     flex-direction: column;
     gap: 4px;
-    align-items: center;
+    align-items: stretch;
 }
 
 .chat-box.active { display: flex; }
@@ -325,7 +327,7 @@ body {
     justify-content: flex-end;
     margin: 6px 0;
     width: 100%;
-    max-width: 700px;
+    max-width: 100%;
 }
 
 .ai {
@@ -335,7 +337,7 @@ body {
     gap: 10px;
     margin: 6px 0;
     width: 100%;
-    max-width: 700px;
+    max-width: 100%;
 }
 
 .ai-avatar {
@@ -365,7 +367,7 @@ body {
 .user .bubble {
     background: linear-gradient(135deg, #4f46e5, #7c3aed);
     color: white;
-    max-width: 66%;
+    max-width: 60%;
     border-bottom-right-radius: 4px;
     box-shadow: 0 4px 16px rgba(99,102,241,0.25);
 }
@@ -375,9 +377,11 @@ body {
     border: 1px solid rgba(255,255,255,0.85);
     backdrop-filter: blur(12px);
     color: #1e1b4b;
-    max-width: 76%;
+    flex: 1;
+    min-width: 0;
     border-bottom-left-radius: 4px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    overflow: visible;
 }
 
 /* Loader */
@@ -433,7 +437,7 @@ body {
    INPUT PILL  ← the star of the show
 ============================================= */
 .input-area {
-    padding: 12px 8% 20px;
+    padding: 12px 4% 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -445,7 +449,7 @@ body {
     display: flex;
     align-items: center;
     width: 100%;
-    max-width: 700px;
+    max-width: 900px;
     background: rgba(255,255,255,0.55);
     border: 1.5px solid rgba(255,255,255,0.85);
     border-radius: 60px;
